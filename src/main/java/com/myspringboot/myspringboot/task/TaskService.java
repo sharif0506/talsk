@@ -2,6 +2,7 @@ package com.myspringboot.myspringboot.task;
 
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TaskService {
@@ -18,9 +19,10 @@ public class TaskService {
     }
 
     // Get a Single Task
-    public Task getTaskById(long id) {
-        return taskRepository.findById(id).get();
+    public Optional<Task> getTaskById(long id) {
+        return taskRepository.findById(id);
     }
+
 
     // Create a new Task
     public Task createTask(Task task) {
